@@ -1,0 +1,24 @@
+{
+  "agendas": [
+    {"name":"📋 Agenda 1","url":"https://tvlibr3.com/agenda/","icon":"📅","agenda":true},
+    {"name":"📋 Agenda 2","url":"https://tvtvhd.com/eventos/","icon":"📅","agenda":true},
+    {"name":"📋 Agenda 3","url":"https://streamtp10.com/eventos.html","icon":"📅","agenda":true},
+    {"name":"📋 Agenda 4","url":"","icon":"⚡","agenda":true,"submenu":[
+      {"name":"Opción 1","url":"https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
+      {"name":"Opción 2","url":"https://shickat.me"},
+      {"name":"Opción 3","url":"https://ciriaco.netlify.app"}
+    ]}
+  ]
+}
+```
+
+- Click **"Commit changes"** → **"Commit directly to main"** → **"Commit changes"**
+
+---
+
+**3. Obtener la URL raw**
+- Abre el archivo `canales.json`
+- Click en el botón **"Raw"** (arriba a la derecha)
+- Copia la URL que aparece — será algo como:
+```
+https://raw.githubusercontent.com/TU_USUARIO/tvlibre-config/main/canales.json
