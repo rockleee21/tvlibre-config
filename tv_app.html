@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TV Libre</title>
+<style>
+  :root{--bg:#0f0f13;--card:#1c1c26;--accent:#f5a623;--text:#eee;--muted:#777}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;
+        overflow:hidden;height:100vh;width:100vw;user-select:none}
+  #header{display:flex;align-items:center;gap:14px;padding:14px 28px;
+           background:#12121a;border-bottom:2px solid var(--accent)}
+  #header h1{font-size:1.5rem;color:var(--accent);letter-spacing:1px}
+  #header small{color:var(--muted);font-size:.75rem;margin-left:8px}
+  #grid-wrap{height:calc(100vh - 62px);overflow-y:auto;padding:24px 28px}
+  #grid-wrap::-webkit-scrollbar{width:4px}
+  #grid-wrap::-webkit-scrollbar-thumb{background:#333}
+  #grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:16px}
+  .card{background:var(--card);border-radius:14px;padding:20px 12px;text-align:center;
+         cursor:pointer;border:3px solid transparent;transition:.15s;outline:none;
+         display:flex;flex-direction:column;align-items:center;gap:10px}
+  .card:focus,.card.focused{border-color:var(--accent);
+    box-shadow:0 0 22px rgba(245,166,35,.3);transform:scale(1.05)}
+  .card .icon{font-size:2rem}
+  .card .name{font-size:.82rem;font-weight:600;line-height:1.3}
+  .card.agenda{
+    grid-column:1/-1;flex-direction:row;justify-content:center;gap:18px;
+    background:linear-gradient(135deg,#1a2a4a 0%,#0d3060 100%);
+    border-color:#4a90d9;padding:18px 28px;
+  }
+  .ch-logo{width:80px;height:50px;object-fit:contain;border-radius:6px}
+  .card.agenda .ch-logo{width:90px;height:56px}
+  .card.agenda:focus,.card.agenda.focused{
+    border-color:#7ab8ff;box-shadow:0 0 28px rgba(74,144,217,.45);
+  }
+  .card.agenda .icon{font-size:2.2rem}
+  .card.agenda .name{font-size:1.05rem;font-weight:700;color:#a8d4ff;letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div id="header">
+  <span style="font-size:1.8rem">📺</span>
+  <h1>TV LIBRE</h1>
+  <small>↑↓←→ navegar · OK seleccionar</small>
+</div>
+<div id="grid-wrap"><div id="grid"></div></div>
+<script>
+const CHANNELS = [
+  {"name":"📋 Agenda 1","url":"https://tvlibr3.com/agenda/","icon":"📅","agenda":true},
+  {"name":"📋 Agenda 2","url":"https://tvtvhd.com/eventos/","icon":"📅","agenda":true},
+  {"name":"📋 Agenda 3","url":"https://streamtp10.com/eventos.html","icon":"📅","agenda":true},
+  {"name":"📋 Agenda 4","url":"","icon":"⚡","agenda":true,"submenu":[
+    {"name":"Opción 1","url":"https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
+    {"name":"Opción 2","url":"https://shickat.me"},
+    {"name":"Opción 3","url":"https://ciriaco.netlify.app"}
+  ]},
+  {"name":"ESPN","url":"","icon":"⚽"},
+  {"name":"ESPN 2","url":"","icon":"⚽"},
+  {"name":"ESPN 3","url":"","icon":"⚽"},
+  {"name":"ESPN 4","url":"","icon":"⚽"},
+  {"name":"ESPN 5","url":"","icon":"⚽"},
+  {"name":"ESPN 6","url":"","icon":"⚽"},
+  {"name":"ESPN 7","url":"","icon":"⚽"},
+  {"name":"ESPN Premium","url":"","icon":"⭐"},
+  {"name":"ESPN MX","url":"","icon":"⚽"},
+  {"name":"ESPN 2 MX","url":"","icon":"⚽"},
+  {"name":"ESPN 3 MX","url":"","icon":"⚽"},
+  {"name":"ESPN Deportes","url":"","icon":"⚽"},
+  {"name":"Fox Sports","url":"","icon":"🦊"},
+  {"name":"Fox Sports 2","url":"","icon":"🦊"},
+  {"name":"Fox Sports 3","url":"","icon":"🦊"},
+  {"name":"Fox Sports MX","url":"","icon":"🦊"},
+  {"name":"Fox Sports Premium","url":"","icon":"⭐"},
+  {"name":"Fox Deportes","url":"","icon":"🦊"},  {"name":"TUDN","url":"","icon":"🏆"},
+  {"name":"TyC Sports","url":"","icon":"🏅"},
+  {"name":"TNT Sports","url":"","icon":"🎯"},
+  {"name":"Liga1 MAX","url":"","icon":"🇵🇪"},
+  {"name":"Movistar Deportes PE","url":"","icon":"📡"},
+  {"name":"RTV Chota","url":"file:///android_asset/player.html#RTV Chota","icon":"📘"},
+  {"name":"DSports","url":"","icon":"📡"},
+  {"name":"DSports+","url":"","icon":"📡"},
+  {"name":"DSports 2","url":"","icon":"📡"}
+];
+
+// Mapeo agendas
+const AGENDA_LOGO_MAP = {"📋 Agenda 1": "Agenda 1", "📋 Agenda 2": "Agenda 2", "📋 Agenda 3": "Agenda 3", "📋 Agenda 4": "Agenda 4"};
+
+let focused = 0;
+
+function render(){
+  const g = document.getElementById('grid');
+  g.innerHTML = CHANNELS.map((ch,i) =>
+    (function(ch,i){
+      var logoKey = ch.agenda ? AGENDA_LOGO_MAP[ch.name] : ch.name;
+      var logoSrc = logoKey && LOGOS[logoKey] ? LOGOS[logoKey] : null;
+      var iconHtml = logoSrc
+        ? '<img src="'+logoSrc+'" class="ch-logo" alt="'+ch.name+'">'
+        : '<div class="icon">'+ch.icon+'</div>';
+      return '<div class="card focusable'+(ch.agenda?' agenda':'')+'" tabindex="0" data-i="'+i+'" onclick="open_ch('+i+')">'
+        + iconHtml
+        + '<div class="name">'+ch.name+'</div>'
+        + '</div>';
+    })(ch,i)
+  ).join('');
+  setFocus(0);
+}
+
+function cards(){ return Array.from(document.querySelectorAll('.card')); }
+
+function setFocus(i){
+  cards().forEach(c => c.classList.remove('focused'));
+  focused = Math.max(0, Math.min(i, CHANNELS.length-1));
+  const el = cards()[focused];
+  if(el){ el.classList.add('focused'); el.focus(); el.scrollIntoView({block:'nearest',behavior:'smooth'}); }
+}
+
+function open_ch(i){
+  var ch = CHANNELS[i];
+  if(ch.submenu && ch.submenu.length){
+    showSubmenu(ch);
+    return;
+  }
+  var url = ch.agenda
+    ? ch.url
+    : 'file:///android_asset/player.html#' + encodeURIComponent(ch.name);
+  if(typeof TvBridge !== 'undefined') TvBridge.openChannel(url, ch.name);
+  else window.location.href = url;
+}
+
+function showSubmenu(ch){
+  var existing = document.getElementById('submenu-overlay');
+  if(existing) existing.remove();
+
+  var overlay = document.createElement('div');
+  overlay.id = 'submenu-overlay';
+  overlay.style.cssText =
+    'position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;' +
+    'align-items:center;justify-content:center;z-index:999;';
+
+  var box = document.createElement('div');
+  box.style.cssText =
+    'background:#1c1c26;border:3px solid #f5a623;border-radius:18px;' +
+    'padding:28px 36px;min-width:320px;display:flex;flex-direction:column;gap:14px;';
+
+  var title = document.createElement('div');
+  title.style.cssText = 'font-size:1.1rem;font-weight:700;color:#f5a623;' +
+    'text-align:center;margin-bottom:6px;letter-spacing:.5px;';
+  title.textContent = ch.icon + '  ' + ch.name.replace('📋 ','');
+  box.appendChild(title);
+
+  var btns = [];
+  ch.submenu.forEach(function(opt, idx){
+    var btn = document.createElement('button');
+    btn.textContent = opt.name;
+    btn.dataset.url = opt.url;
+    btn.style.cssText =
+      'background:#12121a;color:#eee;border:3px solid transparent;border-radius:10px;' +
+      'padding:14px 20px;font-size:1rem;font-weight:600;cursor:pointer;outline:none;' +
+      'transition:.12s;text-align:left;';
+    btn.addEventListener('mouseenter', function(){ focusBtn(idx); });
+    btn.addEventListener('click', function(){ launchSubmenuUrl(opt.url, ch.name); });
+    box.appendChild(btn);
+    btns.push(btn);
+  });
+
+  var subFocused = 0;
+  function focusBtn(i){
+    btns.forEach(function(b){ b.style.borderColor='transparent'; b.style.background='#12121a'; });
+    subFocused = Math.max(0, Math.min(i, btns.length-1));
+    btns[subFocused].style.borderColor='#f5a623';
+    btns[subFocused].style.background='#2a2a3a';
+    btns[subFocused].focus();
+  }
+  focusBtn(0);
+
+  function onKey(e){
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'){ focusBtn(subFocused+1); }
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){ focusBtn(subFocused-1); }
+    else if(e.key==='Enter'||e.key===' '){ launchSubmenuUrl(ch.submenu[subFocused].url, ch.name); }
+    else if(e.key==='Escape'||e.key==='Backspace'){ closeSubmenu(); }
+  }
+  document.addEventListener('keydown', onKey, true);
+
+  function closeSubmenu(){
+    overlay.remove();
+    document.removeEventListener('keydown', onKey, true);
+  }
+  function launchSubmenuUrl(url, name){
+    closeSubmenu();
+    if(typeof TvBridge !== 'undefined') TvBridge.openChannel(url, name);
+    else window.location.href = url;
+  }
+
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) closeSubmenu(); });
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+}
+
+function navVertical(dir){
+  var cols = Math.max(1, Math.floor(document.getElementById('grid').offsetWidth / 171));
+  var curIsAgenda = CHANNELS[focused] && CHANNELS[focused].agenda;
+  if(curIsAgenda){
+    setFocus(focused + dir);
+  } else {
+    var target = focused + dir * cols;
+    if(dir > 0){
+      var hit = -1;
+      for(var i = focused+1; i <= target && i < CHANNELS.length; i++){
+        if(CHANNELS[i] && CHANNELS[i].agenda){ hit = i; break; }
+      }
+      setFocus(hit !== -1 ? hit : target);
+    } else {
+      var hit = -1;
+      for(var i = focused-1; i >= target && i >= 0; i--){
+        if(CHANNELS[i] && CHANNELS[i].agenda){ hit = i; break; }
+      }
+      setFocus(hit !== -1 ? hit : target);
+    }
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if     (e.key==='ArrowRight'){ setFocus(focused+1); e.preventDefault(); }
+  else if(e.key==='ArrowLeft') { setFocus(focused-1); e.preventDefault(); }
+  else if(e.key==='ArrowDown') { navVertical(1);       e.preventDefault(); }
+  else if(e.key==='ArrowUp')   { navVertical(-1);      e.preventDefault(); }
+  else if(e.key==='Enter'||e.key===' '){ open_ch(focused); e.preventDefault(); }
+});
+
+render();
+</script>
+</body>
+</html>
