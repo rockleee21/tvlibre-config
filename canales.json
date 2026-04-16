@@ -6,8 +6,7 @@
       {"name": "Agenda 2", "url": "https://tvtvhd.com/eventos/"},
       {"name": "Agenda 3", "url": "https://streamtp10.com/eventos.html"},
       {"name": "Agenda 4", "url": "", "submenu": [
-        {"name": "Opción 1", "url":
-  "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
+        {"name": "Opción 1", "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
         {"name": "Opción 2", "url": "https://shickat.me"},
         {"name": "Opción 3", "url": "https://ciriaco.netlify.app"}
       ]}
@@ -48,8 +47,7 @@
         {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn1arg.php"},
         {"l": "Opción 4 COL (Ads)", "u": "https://welivesports.shop/embed/espn1col.php"},
         {"l": "Opción 5 (Ads)", "u": "https://elcanaldeportivo.com/espnhd.php", "iframe": true},
-        {"l": "Opción 6 ARG (Ads)", "u": "https://elcanaldeportivo.com/espn-sharecast.php", "iframe":
-  true},
+        {"l": "Opción 6 ARG (Ads)", "u": "https://elcanaldeportivo.com/espn-sharecast.php", "iframe": true},
         {"l": "Opción 7 (Ads)", "u": "https://rereyano.ru/player/3/87", "iframe": true},
         {"l": "Opción 8 ARG", "u": "https://tvtvhd.com/canales.php?stream=espn"}
       ],
@@ -206,9 +204,7 @@
         {"l": "Opción 2 (Ads)", "u": "https://elcanaldeportivo.com/dsports2.php", "iframe": true}
       ],
       "RTV Chota": [
-        {"l": "En Vivo", "u":
-  "https://www.facebook.com/profile.php?id=100040087676511&sk=live_videos&__mmr", "iframe": true, "fb":
-   true}
+        {"l": "En Vivo", "u": "https://www.facebook.com/profile.php?id=100040087676511&sk=live_videos&__mmr", "iframe": true, "fb": true}
       ]
     }
   }
