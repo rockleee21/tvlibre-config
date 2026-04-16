@@ -1,24 +1,220 @@
 {
-  "agendas": [
-    {"name":"📋 Agenda 1","url":"https://tvlibr3.com/agenda/","icon":"📅","agenda":true},
-    {"name":"📋 Agenda 2","url":"https://tvtvhd.com/eventos/","icon":"📅","agenda":true},
-    {"name":"📋 Agenda 3","url":"https://streamtp10.com/eventos.html","icon":"📅","agenda":true},
-    {"name":"📋 Agenda 4","url":"","icon":"⚡","agenda":true,"submenu":[
-      {"name":"Opción 1","url":"https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
-      {"name":"Opción 2","url":"https://shickat.me"},
-      {"name":"Opción 3","url":"https://ciriaco.netlify.app"}
-    ]}
-  ]
-}
-```
-
-- Click **"Commit changes"** → **"Commit directly to main"** → **"Commit changes"**
-
----
-
-**3. Obtener la URL raw**
-- Abre el archivo `canales.json`
-- Click en el botón **"Raw"** (arriba a la derecha)
-- Copia la URL que aparece — será algo como:
-```
-https://raw.githubusercontent.com/TU_USUARIO/tvlibre-config/main/canales.json
+    "version": "1.0.0",
+    "updated": "2026-04-15T18:00:00Z",
+    "agendas": [
+      {"name": "📋 Agenda 1", "url": "https://tvlibr3.com/agenda/", "icon": "📅", "agenda": true},
+      {"name": "📋 Agenda 2", "url": "https://tvtvhd.com/eventos/", "icon": "📅", "agenda": true},
+      {"name": "📋 Agenda 3", "url": "https://streamtp10.com/eventos.html", "icon": "📅", "agenda": true},
+      {"name": "📋 Agenda 4", "url": "", "icon": "⚡", "agenda": true, "submenu": [
+        {"name": "Opción 1", "url":
+  "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/?tab=agenda"},
+        {"name": "Opción 2", "url": "https://shickat.me"},
+        {"name": "Opción 3", "url": "https://ciriaco.netlify.app"}
+      ]}
+    ],
+    "canales": [
+      {"name": "ESPN", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 2", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 3", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 4", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 5", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 6", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 7", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN Premium", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN MX", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 2 MX", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN 3 MX", "icon": "⚽", "category": "Deportes"},
+      {"name": "ESPN Deportes", "icon": "⚽", "category": "Deportes"},
+      {"name": "Fox Sports", "icon": "🏈", "category": "Deportes"},
+      {"name": "Fox Sports 2", "icon": "🏈", "category": "Deportes"},
+      {"name": "Fox Sports 3", "icon": "🏈", "category": "Deportes"},
+      {"name": "Fox Sports MX", "icon": "🏈", "category": "Deportes"},
+      {"name": "Fox Sports Premium", "icon": "⭐", "category": "Deportes"},
+      {"name": "Fox Deportes", "icon": "🦊", "category": "Deportes"},
+      {"name": "TUDN", "icon": "🏆", "category": "Deportes"},
+      {"name": "TyC Sports", "icon": "🏅", "category": "Deportes"},
+      {"name": "TNT Sports", "icon": "🎯", "category": "Deportes"},
+      {"name": "Liga1 MAX", "icon": "🇵🇪", "category": "Deportes"},
+      {"name": "Movistar Deportes PE", "icon": "📡", "category": "Deportes"},
+      {"name": "DSports", "icon": "📡", "category": "Deportes"},
+      {"name": "DSports+", "icon": "📡", "category": "Deportes"},
+      {"name": "DSports 2", "icon": "📡", "category": "Deportes"},
+      {"name": "RTV Chota", "icon": "📘", "category": "Locales"},
+      {"name": "Caracol TV", "icon": "📺", "category": "Locales"},
+      {"name": "Disney+", "icon": "✨", "category": "Entretenimiento"}
+    ],
+    "players": {
+      "ESPN": [
+        {"l": "Opción 1 COL", "u": "https://streamtp10.com/global1.php?stream=espn"},
+        {"l": "Opción 2 ARG", "u": "https://la14hd.com/vivo/canales.php?stream=espn"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn1arg.php"},
+        {"l": "Opción 4 COL (Ads)", "u": "https://welivesports.shop/embed/espn1col.php"},
+        {"l": "Opción 5 (Ads)", "u": "https://elcanaldeportivo.com/espnhd.php", "iframe": true},
+        {"l": "Opción 6 ARG (Ads)", "u": "https://elcanaldeportivo.com/espn-sharecast.php", "iframe": true},
+        {"l": "Opción 7 (Ads)", "u": "https://rereyano.ru/player/3/87", "iframe": true},
+        {"l": "Opción 8 ARG", "u": "https://tvtvhd.com/canales.php?stream=espn"}
+      ],
+      "ESPN 2": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn2"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn2"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn2arg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://welivesports.shop/embed/espn2col.php"},
+        {"l": "Opción 5 (Ads)", "u": "https://elcanaldeportivo.com/espn2hd.php", "iframe": true},
+        {"l": "Opción 6 (Ads)", "u": "https://rereyano.ru/player/3/88", "iframe": true},
+        {"l": "Opción 7", "u": "https://tvtvhd.com/canales.php?stream=espn2"}
+      ],
+      "ESPN 3": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn3"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn3"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn3col.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espn3hd.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/89", "iframe": true}
+      ],
+      "ESPN 4": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn4"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn4"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn4col.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espn4.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/90", "iframe": true}
+      ],
+      "ESPN 5": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn5"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn5"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn5col.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espn5.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/91", "iframe": true}
+      ],
+      "ESPN 6": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn6"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn6"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn6col.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espn6.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/92", "iframe": true}
+      ],
+      "ESPN 7": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn7"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn7"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espn7col.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espn7.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/93", "iframe": true}
+      ],
+      "ESPN Premium": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canal.php?stream=espnpremium"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=espnpremium"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espnpremarg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/espnpremium.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/76", "iframe": true}
+      ],
+      "ESPN MX": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espnmx"},
+        {"l": "Opción 2", "u": "https://rereyano.ru/player/3/97", "iframe": true},
+        {"l": "Opción 3", "u": "https://welivesports.shop/embed/espn1mx.php", "iframe": true},
+        {"l": "Opción 4", "u": "https://la14hd.com/vivo/canales.php?stream=espnmx"}
+      ],
+      "ESPN 2 MX": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn2mx"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn2mx"},
+        {"l": "Opción 3", "u": "https://welivesports.shop/embed/espn2mx.php", "iframe": true},
+        {"l": "Opción 4", "u": "https://rereyano.ru/player/3/98", "iframe": true}
+      ],
+      "ESPN 3 MX": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espn3mx"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espn3mx"}
+      ],
+      "ESPN Deportes": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=espndeportes"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=espndeportes"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/espndeportes.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://rereyano.ru/player/2/71", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://dlhd.dad/stream/stream-375.php", "iframe": true},
+        {"l": "Opción 6", "u": "https://tvtvhd.com/vivo/canales.php?stream=espndeportes"}
+      ],
+      "Fox Sports": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=fox1ar"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=foxsports"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/foxsp1arg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://rereyano.ru/player/3/78", "iframe": true}
+      ],
+      "Fox Sports 2": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canales.php?stream=foxsports2"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=fox2ar"}
+      ],
+      "Fox Sports 3": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canales.php?stream=foxsports3"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=fox3ar"}
+      ],
+      "Fox Sports MX": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=foxsportsmx"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=foxsportsmx"},
+        {"l": "Opción 3 (Ads)", "u": "https://rereyano.ru/player/2/101", "iframe": true},
+        {"l": "Opción 4 (Ads)", "u": "https://dlhd.dad/stream/stream-929.php", "iframe": true}
+      ],
+      "Fox Sports Premium": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=foxsportspremium"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=foxsportspremium"},
+        {"l": "Opción 3 (Ads)", "u": "https://rereyano.ru/player/2/104", "iframe": true},
+        {"l": "Opción 4 (Ads)", "u": "https://dlhd.dad/stream/stream-830.php", "iframe": true}
+      ],
+      "Fox Deportes": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=fox_deportes_usa"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=foxdeportes"},
+        {"l": "Opción 3", "u": "https://welivesports.shop/embed/foxdeportes.php"},
+        {"l": "Opción 4", "u": "https://bolaloca.my/player/3/70", "iframe": true}
+      ],
+      "TUDN": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=tudn_usa"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=tudn"},
+        {"l": "Opción 3 (Ads)", "u": "https://rereyano.ru/player/3/68", "iframe": true}
+      ],
+      "TyC Sports": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canales.php?stream=tycsports"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=tycsports"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/tycsportarg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://rereyano.ru/player/3/77", "iframe": true}
+      ],
+      "TNT Sports": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canal.php?stream=tntsports"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=tntsports"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/tntsportarg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/tntsports.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/3/75", "iframe": true}
+      ],
+      "Liga1 MAX": [
+        {"l": "Opción 1", "u": "https://streamtp10.com/global1.php?stream=liga1max"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=liga1max"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/liga1max.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://elcanaldeportivo.com/liga1maxpe.php", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://rereyano.ru/player/2/84", "iframe": true}
+      ],
+      "Movistar Deportes PE": [
+        {"l": "Opción 1", "u": "https://tvtvhd.com/canales.php?stream=movistar"},
+        {"l": "Opción 2", "u": "https://la14hd.com/vivo/canales.php?stream=movistar"}
+      ],
+      "DSports": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canales.php?stream=dsports"},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=dsports"},
+        {"l": "Opción 3 (Ads)", "u": "https://welivesports.shop/embed/directvarg.php"},
+        {"l": "Opción 4 (Ads)", "u": "https://bolaloca.my/player/3/94", "iframe": true},
+        {"l": "Opción 5 (Ads)", "u": "https://elcanaldeportivo.com/directvsports.php", "iframe": true}
+      ],
+      "DSports+": [
+        {"l": "Opción 1", "u": "https://elcanaldeportivo.com/directvplushd.php", "iframe": true},
+        {"l": "Opción 2", "u": "https://streamtp10.com/global1.php?stream=dsportsplus"},
+        {"l": "Opción 3", "u": "https://rereyano.ru/player/3/96", "iframe": true}
+      ],
+      "DSports 2": [
+        {"l": "Opción 1", "u": "https://la14hd.com/vivo/canales.php?stream=dsports2"},
+        {"l": "Opción 2 (Ads)", "u": "https://elcanaldeportivo.com/dsports2.php", "iframe": true}
+      ],
+      "RTV Chota": [
+        {"l": "En Vivo", "u": "https://www.facebook.com/profile.php?id=100040087676511&sk=live_videos&__mmr", "iframe":
+  true, "fb": true}
+      ],
+      "Disney+": [
+        {"l": "Disney 2", "u": "https://streamtp10.com/global1.php?stream=disney2"},
+        {"l": "Disney 3", "u": "https://streamtp10.com/global1.php?stream=disney3"},
+        {"l": "Disney 4", "u": "https://streamtp10.com/global1.php?stream=disney4"},
+        {"l": "Disney 5", "u": "https://streamtp10.com/global1.php?stream=disney5"}
+      ]
+    }
+  }
